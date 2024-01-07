@@ -1,5 +1,24 @@
-# Github repositories
+# Lab 3
 
+## Description 
+In this Lab, we had to split the services of lab 3 into 3 microservices, Auth, File, and Broker. Then we had to put them on 3 different networks with docker. We had to limit the functionalities of the networks.
+
+## Istall
+To install everything use the Makefile in the docker folder. All you have to do to build and start all the microservices with their networks is to use:
+
+```
+make containers
+```
+
+The IP of the router is 172.17.0.2 and the port is 8080. All the requests will need to be secure. 
+
+```
+curl -k --location 'https://172.17.0.2:8080/api/v1/version'
+```
+
+## More stuff
+- I tried to use docker-compose and is almost all done. The problem is that with docker-compose I could not assign the IP 172.17.0.2 to the router. Maybe there is a solution to this but I couldn't find it. 
+- I added the Postgres database with its volume.
 
 # How to use these files
 
@@ -14,15 +33,8 @@ The provided `Makefile` has the following rules:
 - remove: stop the containers and remove the networks.
 - clean: used to remove temporary files from the project.
 
-To build and start all the services and the networks, you must use:
-
-```
-make containers
-```
 
 ## Connecting to the SSH servers
-
-As defined in the laboratory definition:
 
 - All the accesses should be done using `jump` as "jump machine".
 - There are only two users: `dev` and `op`.
@@ -36,3 +48,5 @@ As defined in the laboratory definition:
     for the user `op`.
 - The files `dev_key` and `dev_key.pub` contains the private and
     public key for the user `dev`.
+
+
